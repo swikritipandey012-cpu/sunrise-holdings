@@ -1,0 +1,70 @@
+:root {
+  --orange: #F28C18;
+  --orange-light: #F6B24A;
+  --orange-dark: #D96F0B;
+
+  --cream: #FFF8EA;
+  --white: #FFFFFF;
+  --gold: #C47F2A;
+  --brown: #3B2A20;
+  --text: #3B2A20;
+  --muted: #5A5047;
+  --navy: var(--brown);
+  --accent: var(--orange);
+  --accent-light: var(--orange-light);
+  --accent-dark: var(--orange-dark);
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  overflow-x: clip;
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--cream);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--brown);
+}
+
+/* ---------- Shared "Learn More" button ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 26px;
+  border: 0;
+  background: var(--orange);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--brown);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn span {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  background: #e07a0c;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(217, 111, 11, 0.35);
+}
+
+.btn:hover span {
+  transform: translateX(4px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}

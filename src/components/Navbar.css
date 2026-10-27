@@ -1,0 +1,324 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 6px 24px rgba(59, 42, 32, 0.12);
+}
+
+/* ---------- orange strip (phone + contact) ---------- */
+.navbar-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 34px;
+  padding: 7px 48px;
+  overflow: hidden;
+  background: #E98212;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: max-height 0.3s ease, padding 0.3s ease, visibility 0s;
+}
+
+.navbar-strip a {
+  color: var(--brown);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* slides away smoothly after scrolling instead of jumping */
+.navbar.scrolled .navbar-strip {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  visibility: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease, visibility 0s 0.3s;
+}
+
+/* ---------- main bar ---------- */
+.navbar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+  padding: 6px 48px;
+  background-color: var(--white);
+  background-image:
+    linear-gradient(90deg, rgba(255, 240, 213, 0.9) 0%, rgba(255, 240, 213, 0.9) 30%, rgba(255, 240, 213, 0) 65%),
+    linear-gradient(rgba(242, 140, 24, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 140, 24, 0.07) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  border-bottom: 1px solid rgba(242, 140, 24, 0.3);
+}
+
+.navbar-brand {
+  display: block;
+}
+
+.navbar-logo {
+  height: 82px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease;
+}
+
+.navbar.scrolled .navbar-logo {
+  height: 62px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ---------- links ---------- */
+.nav-link {
+  position: relative;
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* the dropdown triggers are buttons: strip the browser look */
+.nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Orange underline that slides in under the link */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after,
+.dropdown.open .nav-link::after,
+.dropdown.current .nav-link::after {
+  transform: scaleX(1);
+}
+
+.nav-link:focus-visible,
+.dropdown-item:focus-visible,
+.navbar-strip a:focus-visible,
+.hamburger:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* ---------- dropdown ---------- */
+.dropdown {
+  position: relative;
+}
+
+.chevron {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.dropdown.open .chevron {
+  transform: translateY(2px) rotate(225deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  padding: 8px 0;
+  background: var(--white);
+  border-top: 2px solid var(--orange);
+  box-shadow: 0 12px 30px rgba(59, 42, 32, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 24px;
+  border-left: 3px solid transparent;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+  background: var(--orange);
+  color: var(--white);
+  padding-left: 28px;
+}
+
+/* the page you are on, inside the dropdown */
+.dropdown-item.active {
+  border-left-color: var(--orange);
+  color: var(--orange-dark);
+  font-weight: 600;
+}
+
+.dropdown-item.active:hover {
+  color: var(--white);
+}
+
+/* ---------- mobile ---------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--brown);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-group {
+  margin: 0;
+  padding: 16px 24px 6px;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+}
+
+.mobile-link {
+  display: block;
+  padding: 14px 24px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(59, 42, 32, 0.08);
+}
+
+.mobile-link.sub {
+  padding-left: 44px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.mobile-phone {
+  display: block;
+  padding: 18px 24px;
+  background: var(--orange);
+  color: var(--brown);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .navbar-strip {
+    padding: 7px 20px;
+  }
+
+  .navbar-main {
+    padding: 6px 20px;
+  }
+
+  .navbar-logo {
+    height: 60px;
+  }
+
+  .navbar.scrolled .navbar-logo {
+    height: 52px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    background: var(--white);
+    transition: max-height 0.4s ease, visibility 0s 0.4s;
+  }
+
+  .mobile-menu.open {
+    max-height: 80vh;
+    overflow-y: auto;
+    visibility: visible;
+    transition: max-height 0.4s ease, visibility 0s;
+  }
+}

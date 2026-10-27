@@ -1,0 +1,63 @@
+.page-header {
+  padding: 190px 48px 64px;
+  background-color: #FCE9C8;
+  background-image:
+    linear-gradient(rgba(242, 140, 24, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 140, 24, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  border-bottom: 3px solid var(--orange);
+}
+
+.page-header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.page-header-label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+}
+
+.page-header h1 {
+  margin: 0 0 24px;
+  font-size: clamp(36px, 4.4vw, 56px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--brown);
+}
+
+.breadcrumb {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--orange-dark);
+}
+
+.breadcrumb-current {
+  color: var(--brown);
+}
+
+.breadcrumb-sep {
+  margin: 0 10px;
+  opacity: 0.45;
+}
+
+@media (max-width: 900px) {
+  .page-header {
+    padding: 160px 24px 48px;
+  }
+}

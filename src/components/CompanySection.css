@@ -1,0 +1,365 @@
+/* ---------- shared styles for About + Portfolio + Contact pages ---------- */
+
+/* big sentence under the page header */
+.pg-lead {
+  background: var(--cream);
+  border-bottom: 1px solid rgba(242, 140, 24, 0.25);
+}
+
+.pg-lead-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 48px;
+}
+
+.pg-lead p {
+  margin: 0;
+  max-width: 820px;
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.6;
+  color: var(--brown);
+}
+
+.pg-label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+}
+
+/* ---------- heading on the left, text on the right ---------- */
+.pg-split {
+  background: var(--white);
+}
+
+.pg-split.alt {
+  background: var(--cream);
+  border-top: 1px solid rgba(242, 140, 24, 0.25);
+  border-bottom: 1px solid rgba(242, 140, 24, 0.25);
+}
+
+.pg-split-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 88px 48px;
+}
+
+.pg-split h2 {
+  margin: 0 0 24px;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.pg-line {
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.pg-copy p {
+  margin: 0 0 24px;
+  max-width: 660px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.pg-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- investment model cards ---------- */
+.pg-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 48px 96px;
+}
+
+.pg-card {
+  padding: 32px;
+  background: var(--white);
+  border-top: 3px solid var(--orange);
+  box-shadow: 0 10px 28px rgba(59, 42, 32, 0.1);
+}
+
+.pg-card h3 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.pg-card p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.pg-cards-wrap {
+  background: var(--cream);
+  padding-top: 0;
+}
+
+/* ---------- one company: photo + text ---------- */
+.pg-company {
+  background: var(--white);
+}
+
+.pg-company.alt {
+  background: var(--cream);
+  border-top: 1px solid rgba(242, 140, 24, 0.25);
+  border-bottom: 1px solid rgba(242, 140, 24, 0.25);
+}
+
+.pg-company-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 88px;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 96px 48px;
+}
+
+.pg-company.reverse .pg-company-visual {
+  order: 2;
+}
+
+.pg-company-visual {
+  position: relative;
+  margin: 0 20px 20px 0;
+}
+
+.pg-company.reverse .pg-company-visual {
+  margin: 0 0 20px 20px;
+}
+
+/* thin gold frame, offset behind the photo (same idea as the home page) */
+.pg-company-visual::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: -20px;
+  bottom: -20px;
+  border: 1px solid var(--gold);
+}
+
+.pg-company.reverse .pg-company-visual::before {
+  left: -20px;
+  right: 20px;
+}
+
+.pg-photo {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 24px 48px rgba(59, 42, 32, 0.16);
+}
+
+.pg-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s ease;
+}
+
+.pg-photo:hover img {
+  transform: scale(1.05);
+}
+
+.pg-badge {
+  position: absolute;
+  z-index: 2;
+  left: -24px;
+  bottom: 32px;
+  padding: 14px 22px;
+  background: var(--brown);
+  color: var(--cream);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pg-company-text h2 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.pg-place {
+  display: block;
+  margin-bottom: 28px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.pg-company-text p {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.pg-company-text strong {
+  font-weight: 600;
+  color: var(--brown);
+}
+
+.pg-company-text .btn {
+  margin-top: 12px;
+}
+
+/* ---------- contact page ---------- */
+.ct {
+  background: var(--white);
+}
+
+.ct-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 64px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 88px 48px 104px;
+}
+
+.ct-info h2 {
+  margin: 0 0 24px;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ct-info .ct-name {
+  margin: 32px 0 12px;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--brown);
+}
+
+.ct-info p {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.ct-info a {
+  font-weight: 600;
+  color: var(--brown);
+  text-decoration: none;
+  border-bottom: 1px solid var(--orange);
+  transition: color 0.25s ease;
+}
+
+.ct-info a:hover {
+  color: var(--orange-dark);
+}
+
+.ct-map {
+  display: block;
+  width: 100%;
+  height: 440px;
+  border: 0;
+  box-shadow: 0 16px 36px rgba(59, 42, 32, 0.14);
+}
+
+@media (max-width: 900px) {
+  .pg-lead-inner {
+    padding: 40px 24px;
+  }
+
+  .pg-split-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 56px 24px;
+  }
+
+  .pg-cards {
+    grid-template-columns: 1fr;
+    padding: 0 24px 64px;
+  }
+
+  .pg-company-inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding: 64px 24px;
+  }
+
+  .pg-company.reverse .pg-company-visual {
+    order: 0;
+  }
+
+  .pg-badge {
+    left: -8px;
+  }
+
+  .ct-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 56px 24px 72px;
+  }
+
+  .ct-map {
+    height: 320px;
+  }
+}
+
+/* ---------- intro strip with a picture on the right ---------- */
+.pg-lead-inner.has-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.pg-lead-image {
+  position: relative;
+  margin: 0 16px 16px 0;
+}
+
+.pg-lead-image::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: -16px;
+  bottom: -16px;
+  border: 1px solid var(--gold);
+}
+
+.pg-lead-image img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  box-shadow: 0 20px 44px rgba(59, 42, 32, 0.18);
+}
+
+@media (max-width: 900px) {
+  .pg-lead-inner.has-image {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
